@@ -15,4 +15,3 @@ input.txt contains (length, value) pairs edit as you please accordingly
 
 reused vec.c/.h, piece_values.c/.h cut_list.c/.h and cache.c/.h as provided by Prof. Bruce Mckenzie as I did rod_cutting using dynamic programming
 
-note: I was going to use arc4random() but couldn't figure it out for wsl? Moving onto Assignment 7 & 8 now though
