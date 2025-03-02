@@ -10,10 +10,6 @@
 Cache *cache               = NULL;
 static Vec global_val_list = NULL;
 
-#define NUM_ARGS 2
-#define INPUT_FILE_ARG 1
-#define MIN_ROD_LENGTH 1
-
 // Wrapper function for val_list
 ValueType provider_wrapper(KeyType rod_length) {
     return optimal_cutlist_for(global_val_list, rod_length);
@@ -21,12 +17,12 @@ ValueType provider_wrapper(KeyType rod_length) {
 
 int main(int argc, char *argv[]) {
     // Check for correct number of arguments ex: ./rod_cutlru input.txt
-    if (argc != NUM_ARGS) {
+    if (argc != 2) {
         fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
         return 1;
     }
 
-    FILE *file = fopen(argv[INPUT_FILE_ARG], "r");
+    FILE *file = fopen(argv[1], "r");
     if (file == NULL) {
         perror("Error opening file");
         return 1;
@@ -57,7 +53,7 @@ int main(int argc, char *argv[]) {
     // frees cache
     PieceLength rod_length;
     while (scanf("%d", &rod_length) == 1) {  // read rod lengths from stdin
-        if (rod_length < MIN_ROD_LENGTH) {
+        if (rod_length < 1) {
             fprintf(stderr, "Invalid rod length: %d\n", rod_length);
             continue;
         }

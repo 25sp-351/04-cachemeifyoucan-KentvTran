@@ -81,8 +81,8 @@ CutList *choose_best_cuts(CutList *starting_cutlist, Vec pv) {
     }
 
     PieceLengthValue *length_to_try = vec_items(pv);
-    for (size_t ix = 0; ix < vec_length(pv); ix++) {
-        if (!cutlist_can_add_piece(starting_cutlist, length_to_try[ix]))
+    for (size_t i = 0; i < vec_length(pv); i++) {
+        if (!cutlist_can_add_piece(starting_cutlist, length_to_try[i]))
             continue;
 
         CutList *new_cutlist = cutlist_copy(starting_cutlist);
@@ -93,7 +93,7 @@ CutList *choose_best_cuts(CutList *starting_cutlist, Vec pv) {
             return NULL;
         }
 
-        cutlist_add_piece(new_cutlist, length_to_try[ix]);
+        cutlist_add_piece(new_cutlist, length_to_try[i]);
 
         CutList *maybe_better_option = choose_best_cuts(new_cutlist, pv);
         // Handle Recursion Error

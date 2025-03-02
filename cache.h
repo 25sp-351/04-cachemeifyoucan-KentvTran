@@ -23,7 +23,7 @@ typedef ValueType (*ProviderFunction)(KeyType key);
 
 /* Types of cache statistics. Values are %d. */
 // These are basic/standard. Add what you want.
-typedef struct cache_stat {
+typedef struct stat {
     enum Stat_type {
         END_OF_STATS    = 0,
         Cache_requests  = 1,

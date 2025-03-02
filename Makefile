@@ -1,6 +1,6 @@
 CC = clang
 CFLAGS = -g -Wall -fPIC -DDEBUG
-LDFLAGS = -ldl -lbsd 
+LDFLAGS = -ldl
 FORMAT_FLAGS = -style=file  # Uses .clang-format if available
 
 all: rod_cut_lru rod_cut_rr
