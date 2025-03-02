@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <bsd/stdlib.h> 
 
 #include "cut_list.h"
 
@@ -50,7 +51,7 @@ ValueType _caching_provider(KeyType key) {
     ValueType result = _provider(key);
 
     // Store in random position
-    int index = rand() % CACHE_SIZE;
+    int index = arc4random_uniform(CACHE_SIZE);
 
     // Evict existing entry if random position is occupied
     evict_cache_entry(index);
